@@ -119,7 +119,6 @@ def finalizar_habitacion(argumentos):
 
 
             reservas=fd.leer_reserves()
-
             if numero_habitacion in reservas:
                 if dias >0:
                     dicc_habi=fd.leer_habitaciones()
@@ -214,9 +213,9 @@ def listar_habitaciones(argumentos):
 
 
 
-                if estado == "Ocupado":
+                    if estado == "Ocupado":
 
-                    print(info_reserva)
+                        print(info_reserva)
                 else:
                     print(info_habitacion)
             print("==============================")
@@ -224,19 +223,15 @@ def listar_habitaciones(argumentos):
 
 
 
-
-
-
-
-
 def listar_reserves(argumentos):
     if comprobar_longitud(argumentos, 2):
 
         dicc_reservas=fd.leer_reserves()
-        if not dicc_reservas:
+        if len(dicc_reservas) == 0:
             print("No hi han reserves disponibles.")
 
         else:
+            print("=======   RESERVES =========")
             for reserva in dicc_reservas:
 
                 nombre_cliente = dicc_reservas[reserva]["nombre"]
@@ -245,7 +240,7 @@ def listar_reserves(argumentos):
                 telefono_cliente = dicc_reservas[reserva]["telefono"]
                 nombreclinteformato=nombre_cliente.title()+(" ")+apellido_cliente.title()
                 info_reserva = f"{reserva}:{dni_cliente}-{nombreclinteformato}-{telefono_cliente}"
-                print("=======   RESERVES =========")
+
                 print(info_reserva)
 
 
@@ -261,7 +256,7 @@ def listar_dni(argumentos):
 
         else:
             cont = 0
-            print("========    RESERVES   =========")
+            #print("========    RESERVES   =========")
 
             for reserva in rev_dni:
                 dni_biblio= rev_dni[reserva]["dni"].lower()

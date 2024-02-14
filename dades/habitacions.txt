@@ -1,0 +1,5 @@
+1,0,40,Disponible
+100,aa,50,Disponible
+104,4,50,Neta
+105,2,60,Neta
+106,2,40,Disponible

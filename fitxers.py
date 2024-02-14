@@ -21,6 +21,7 @@ def carpeta():
 
 def leer_habitaciones():
 
+    habitaciones = {}
     # miramos si existe el fichero de datos
     if os.path.exists(ruta_archivo):
 
@@ -43,8 +44,8 @@ def leer_habitaciones():
                 "precio": precio,
                 "estado": estado,
             }
-        if habitaciones!= {}:
-            return habitaciones
+
+    return habitaciones
 
 
 
@@ -54,7 +55,7 @@ def leer_habitaciones():
 #misma funcion para leer las reservas en el fichero y convertirlas a un diccionario reservas
 def leer_reserves():
 
-
+        reserves = {}
         # miramos si existe el fichero de datos
         if os.path.exists(ruta_archivo2):
             # abrimos para leemos los datos
@@ -63,15 +64,15 @@ def leer_reserves():
             lineas2 = f.readlines()
 
             f.close()
-            reserves = {}
+
             for linea in lineas2:
-                linea.replace("\n", "")
+                #linea.replace("\n", "")
                 lineafitxers = linea.split(",")
                 n_habitaciones = lineafitxers[0]
                 nombre = lineafitxers[1]
                 apellido = lineafitxers[2]
                 dni = lineafitxers[3]
-                telefono = lineafitxers[4]
+                telefono = lineafitxers[4][:-1]
 
                 reserves[n_habitaciones] = {
                     "nombre": nombre,
@@ -81,7 +82,7 @@ def leer_reserves():
 
                 }
 
-            return reserves
+        return reserves
 
 
 
